@@ -5,7 +5,7 @@ import { Subject, map } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class PersonsService {
   personsChanged = new Subject<string[]>();
-  persons: string[] = [];
+  private persons: string[] = []; // This will hold the combined list
 
   constructor(private http: HttpClient) {}
 
@@ -18,19 +18,20 @@ export class PersonsService {
         })
       )
       .subscribe((transFormedData) => {
-        this.personsChanged.next(transFormedData);
+        this.persons = transFormedData.concat(this.persons); // Combine fetched and existing persons
+        this.personsChanged.next(this.persons.slice()); // Emit the updated list
       });
   }
 
   addPerson(name: string) {
     this.persons.push(name);
-    this.personsChanged.next(this.persons);
+    this.personsChanged.next(this.persons.slice()); // Emit the updated list
   }
 
   removePerson(name: string) {
     this.persons = this.persons.filter((person) => {
       return person !== name;
     });
-    this.personsChanged.next(this.persons);
+    this.personsChanged.next(this.persons.slice()); // Emit the updated list
   }
 }

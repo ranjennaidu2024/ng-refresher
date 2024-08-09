@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './persons.component.html',
 })
 export class PersonsComponent implements OnInit, OnDestroy {
-  personList: string[];
+  personList: string[] = [];
   isFetching = false;
   private personListSubs: Subscription;
 
