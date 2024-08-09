@@ -22,6 +22,8 @@ Publish Directory: dist/ng-refresher/browser
 
 Now the app can be accessed via: https://ranjen-ngrefresher.netlify.app/
 
+The API data for testing was used from https://swapi.dev/
+
 ---
 
 Structure
