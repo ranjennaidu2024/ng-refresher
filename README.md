@@ -14,6 +14,14 @@
 
 can access the app via http://localhost:4200/
 
+4. Deployment steps:
+
+-Go to Netlify , sync with git and Configure Build Settings
+Build Command: npm run build
+Publish Directory: dist/ng-refresher/browser
+
+Now the app can be accessed via: https://ranjen-ngrefresher.netlify.app/
+
 ---
 
 Structure
