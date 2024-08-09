@@ -5,4 +5,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: './person-input.component.html',
   styleUrls: ['./person-input.component.css'],
 })
-export class PersonInputComponent {}
+export class PersonInputComponent {
+  onCreatePerson(personName: string) {
+    console.log('Created a Person: ' + personName);
+  }
+}
